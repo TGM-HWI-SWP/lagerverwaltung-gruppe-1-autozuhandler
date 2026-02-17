@@ -132,7 +132,6 @@ dmypy.json
 
 # Projektspezifisch
 data/*.db
-data/*.json
 *.db
 *.sqlite
 *.sqlite3

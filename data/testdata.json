@@ -1,0 +1,311 @@
+{
+  "warehouse": {
+    "name": "Hauptlager Autozubehör"
+  },
+  "products": [
+    {
+      "product_id": "REI-001",
+      "name": "Winterreifen Michelin 205/55R16",
+      "description": "Premium Winterreifen für PKW, M+S Kennzeichnung",
+      "price": 89.99,
+      "quantity": 24,
+      "category": "Reifen",
+      "sku": "MICH-WIN-205-55-R16",
+      "brand": "Michelin",
+      "location": "A1-01"
+    },
+    {
+      "product_id": "REI-002",
+      "name": "Sommerreifen Continental 195/65R15",
+      "description": "Hochwertiger Sommerreifen, gute Nasshaftung",
+      "price": 75.50,
+      "quantity": 18,
+      "category": "Reifen",
+      "sku": "CONT-SOM-195-65-R15",
+      "brand": "Continental",
+      "location": "A1-02"
+    },
+    {
+      "product_id": "OEL-001",
+      "name": "Motoröl 5W-30 Castrol Edge",
+      "description": "Vollsynthetisches Motoröl, 5 Liter Kanister",
+      "price": 45.99,
+      "quantity": 35,
+      "category": "Öl & Flüssigkeiten",
+      "sku": "CAST-EDGE-5W30-5L",
+      "brand": "Castrol",
+      "location": "B2-01"
+    },
+    {
+      "product_id": "OEL-002",
+      "name": "Bremsflüssigkeit DOT 4",
+      "description": "Hochleistungs-Bremsflüssigkeit, 1 Liter",
+      "price": 12.49,
+      "quantity": 50,
+      "category": "Öl & Flüssigkeiten",
+      "sku": "BRE-DOT4-1L",
+      "brand": "ATE",
+      "location": "B2-02"
+    },
+    {
+      "product_id": "OEL-003",
+      "name": "Kühlerfrostschutz -40°C",
+      "description": "Fertiggemisch, 5 Liter, blau",
+      "price": 18.99,
+      "quantity": 28,
+      "category": "Öl & Flüssigkeiten",
+      "sku": "KUEHL-FROST-5L",
+      "brand": "Glysantin",
+      "location": "B2-03"
+    },
+    {
+      "product_id": "BAT-001",
+      "name": "Autobatterie 12V 60Ah",
+      "description": "Starterbatterie für PKW, wartungsfrei",
+      "price": 79.99,
+      "quantity": 12,
+      "category": "Batterien",
+      "sku": "VARTA-12V-60AH",
+      "brand": "Varta",
+      "location": "C3-01"
+    },
+    {
+      "product_id": "BAT-002",
+      "name": "Autobatterie 12V 74Ah AGM",
+      "description": "AGM-Technologie, Start-Stop geeignet",
+      "price": 149.99,
+      "quantity": 8,
+      "category": "Batterien",
+      "sku": "BOSCH-AGM-74AH",
+      "brand": "Bosch",
+      "location": "C3-02"
+    },
+    {
+      "product_id": "BRE-001",
+      "name": "Bremsbeläge vorne VW Golf 7",
+      "description": "Hochwertige Bremsbeläge, Satz für Vorderachse",
+      "price": 34.99,
+      "quantity": 20,
+      "category": "Bremsen",
+      "sku": "ATE-BREM-VW-GOLF7-V",
+      "brand": "ATE",
+      "location": "D4-01"
+    },
+    {
+      "product_id": "BRE-002",
+      "name": "Bremsscheiben Set BMW 3er",
+      "description": "Belüftete Bremsscheiben, Paar Vorderachse",
+      "price": 89.99,
+      "quantity": 6,
+      "category": "Bremsen",
+      "sku": "BREM-SCH-BMW-3ER",
+      "brand": "Brembo",
+      "location": "D4-02"
+    },
+    {
+      "product_id": "LIC-001",
+      "name": "H7 Halogen-Lampe 12V 55W",
+      "description": "Standard Abblendlicht Lampe, 2er Pack",
+      "price": 9.99,
+      "quantity": 100,
+      "category": "Licht & Elektrik",
+      "sku": "OSRAM-H7-55W-2P",
+      "brand": "Osram",
+      "location": "E5-01"
+    },
+    {
+      "product_id": "LIC-002",
+      "name": "LED Innenraumbeleuchtung Set",
+      "description": "Universal LED Set für Innenraum, weiß",
+      "price": 24.99,
+      "quantity": 30,
+      "category": "Licht & Elektrik",
+      "sku": "LED-INNEN-SET",
+      "brand": "Philips",
+      "location": "E5-02"
+    },
+    {
+      "product_id": "LIC-003",
+      "name": "Starterkabel 25mm² 3,5m",
+      "description": "Starthilfekabel für PKW und Kleintransporter",
+      "price": 29.99,
+      "quantity": 15,
+      "category": "Licht & Elektrik",
+      "sku": "START-KABEL-25MM",
+      "brand": "Einhell",
+      "location": "E5-03"
+    },
+    {
+      "product_id": "SCH-001",
+      "name": "Scheibenwischer Set 600/450mm",
+      "description": "Universelle Flachbalkenwischer, Paar",
+      "price": 19.99,
+      "quantity": 40,
+      "category": "Scheibenwischer",
+      "sku": "BOSCH-WISCH-600-450",
+      "brand": "Bosch",
+      "location": "F6-01"
+    },
+    {
+      "product_id": "SCH-002",
+      "name": "Heckscheibenwischer 300mm",
+      "description": "Standard Heckwischer für diverse Fahrzeuge",
+      "price": 8.99,
+      "quantity": 25,
+      "category": "Scheibenwischer",
+      "sku": "HECK-WISCH-300",
+      "brand": "SWF",
+      "location": "F6-02"
+    },
+    {
+      "product_id": "INN-001",
+      "name": "Fußmatten-Set Universal",
+      "description": "4-teiliges Gummi-Fußmatten Set, schwarz",
+      "price": 29.99,
+      "quantity": 20,
+      "category": "Innenraum",
+      "sku": "FUSS-MAT-UNI-4ER",
+      "brand": "Walser",
+      "location": "G7-01"
+    },
+    {
+      "product_id": "INN-002",
+      "name": "Lenkradbezug Leder 37-39cm",
+      "description": "Hochwertiger Leder-Lenkradbezug, universell",
+      "price": 18.99,
+      "quantity": 15,
+      "category": "Innenraum",
+      "sku": "LENK-BEZ-LEDER",
+      "brand": "Heyner",
+      "location": "G7-02"
+    },
+    {
+      "product_id": "WER-001",
+      "name": "Wagenheber hydraulisch 2t",
+      "description": "Hydraulischer Rangierwagenheber bis 2 Tonnen",
+      "price": 49.99,
+      "quantity": 10,
+      "category": "Werkzeug",
+      "sku": "WAGEN-HEB-HYD-2T",
+      "brand": "Kunzer",
+      "location": "H8-01"
+    },
+    {
+      "product_id": "WER-002",
+      "name": "Radkreuz 17/19/21/23mm",
+      "description": "Standard Radkreuz für Radwechsel",
+      "price": 14.99,
+      "quantity": 25,
+      "category": "Werkzeug",
+      "sku": "RAD-KREUZ-4ER",
+      "brand": "Vigor",
+      "location": "H8-02"
+    },
+    {
+      "product_id": "WER-003",
+      "name": "Ölfilter-Schlüssel Set",
+      "description": "3-teiliges Ölfilter-Schlüssel Set",
+      "price": 22.99,
+      "quantity": 8,
+      "category": "Werkzeug",
+      "sku": "OEL-FILT-SCHL-SET",
+      "brand": "KS Tools",
+      "location": "H8-03"
+    },
+    {
+      "product_id": "SON-001",
+      "name": "Warndreieck Euro",
+      "description": "Kompaktes Warndreieck nach ECE R27",
+      "price": 9.99,
+      "quantity": 45,
+      "category": "Sonstiges",
+      "sku": "WARN-DREI-ECE",
+      "brand": "Petex",
+      "location": "I9-01"
+    },
+    {
+      "product_id": "SON-002",
+      "name": "Verbandskasten DIN 13164",
+      "description": "KFZ-Verbandkasten nach aktueller Norm",
+      "price": 14.99,
+      "quantity": 30,
+      "category": "Sonstiges",
+      "sku": "VERB-KAST-DIN",
+      "brand": "Leina",
+      "location": "I9-02"
+    },
+    {
+      "product_id": "SON-003",
+      "name": "Warnweste gelb EN ISO 20471",
+      "description": "Sicherheitsweste, Einheitsgröße",
+      "price": 3.99,
+      "quantity": 100,
+      "category": "Sonstiges",
+      "sku": "WARN-WEST-GELB",
+      "brand": "3M",
+      "location": "I9-03"
+    }
+  ],
+  "movements": [
+    {
+      "id": "MOV-001",
+      "product_id": "OEL-001",
+      "product_name": "Motoröl 5W-30 Castrol Edge",
+      "quantity_change": 10,
+      "movement_type": "IN",
+      "reason": "Nachbestellung eingetroffen",
+      "timestamp": "2026-02-15T09:30:00",
+      "performed_by": "admin"
+    },
+    {
+      "id": "MOV-002",
+      "product_id": "REI-001",
+      "product_name": "Winterreifen Michelin 205/55R16",
+      "quantity_change": -4,
+      "movement_type": "OUT",
+      "reason": "Verkauf an Kunde #1234",
+      "timestamp": "2026-02-15T11:45:00",
+      "performed_by": "mitarbeiter1"
+    },
+    {
+      "id": "MOV-003",
+      "product_id": "BAT-001",
+      "product_name": "Autobatterie 12V 60Ah",
+      "quantity_change": -1,
+      "movement_type": "OUT",
+      "reason": "Defekt bei Lagerkontrolle festgestellt",
+      "timestamp": "2026-02-16T08:15:00",
+      "performed_by": "lagerleiter"
+    },
+    {
+      "id": "MOV-004",
+      "product_id": "LIC-001",
+      "product_name": "H7 Halogen-Lampe 12V 55W",
+      "quantity_change": 50,
+      "movement_type": "IN",
+      "reason": "Großbestellung eingetroffen",
+      "timestamp": "2026-02-16T10:00:00",
+      "performed_by": "admin"
+    },
+    {
+      "id": "MOV-005",
+      "product_id": "SCH-001",
+      "product_name": "Scheibenwischer Set 600/450mm",
+      "quantity_change": -5,
+      "movement_type": "OUT",
+      "reason": "Verkauf Werkstatt XYZ",
+      "timestamp": "2026-02-16T14:30:00",
+      "performed_by": "mitarbeiter2"
+    },
+    {
+      "id": "MOV-006",
+      "product_id": "BRE-001",
+      "product_name": "Bremsbeläge vorne VW Golf 7",
+      "quantity_change": 2,
+      "movement_type": "CORRECTION",
+      "reason": "Inventurkorrektur - tatsächlicher Bestand höher",
+      "timestamp": "2026-02-17T09:00:00",
+      "performed_by": "lagerleiter"
+    }
+  ]
+}
