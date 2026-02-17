@@ -1,132 +1,77 @@
-# Changelog - [Name]
+# Changelog - Dominik Stojanovic
 
-Persönliches Changelog für [Name], Rolle: [Rollenbezeichnung]
-
----
-
-## [v0.1] - 2025-01-20
-
-### Implementiert
-- [Feature/Fix 1]
-- [Feature/Fix 2]
-- [Feature/Fix 3]
-
-### Tests geschrieben
-- test_[name 1]
-- test_[name 2]
-
-### Commits
-```
-- abc1234 Feat: [Beschreibung]
-- def5678 Test: [Beschreibung]
-- ghi9012 Docs: [Beschreibung]
-```
-
-### Mergekonflikt(e)
-- [Datei]: [Kurzbeschreibung und Lösung]
+Persönliches Changelog für Dominik Stojanovic, Rolle: GUI & Interaktion
 
 ---
 
-## [v0.2] - [Datum]
+## [v0.1] - 2026-02-10
 
 ### Implementiert
-- [Feature/Fix 1]
-- [Feature/Fix 2]
+- Projektmanagement-Dokumentation für Lagerverwaltungssystem erstellt
+- GUI-Skizze für Autozubehör-Lagerverwaltung entworfen
+- Projekt-Repository beigetreten und Entwicklungsumgebung in Visual Studio Code eingerichtet
+- Überblick über bestehende GUI in src/ui/__init__.py gemacht
 
 ### Tests geschrieben
-- test_[name 1]
+- Noch keine automatischen Tests
+- Manuelle Überprüfung der GUI-Skizze und Struktur
 
 ### Commits
-```
-- jkl3456 Feat: [Beschreibung]
-```
+Feat: Add PM documentation
+
+Docs: Add GUI sketch for auto accessories warehouse
+
+Setup: Join repository and setup VS Code environment
+
 
 ### Mergekonflikt(e)
 - Keine
 
 ---
 
-## [v0.3] - [Datum]
+## [v0.2] - 2026-02-12
 
 ### Implementiert
-- [Feature/Fix 1]
+- Bestehende GUI analysiert und refaktorisiert
+- GUI von einer Datei (__init__.py) in mehrere Dateien aufgeteilt:
+  - main_window.py
+  - dialogs.py
+  - __main__.py
+- GUI an Projekt-Thema „Autozubehör-Lagerverwaltung“ angepasst
+- Artikel-Dialog für Autozubehör erstellt
+- Artikelliste-GUI mit PyQt6 umgesetzt
+- Service-Anbindung der GUI vorbereitet
 
 ### Tests geschrieben
-- [Tests]
+- Manuelle Tests:
+  - GUI startet ohne Fehler
+  - Artikel-Dialog öffnet korrekt
+  - Artikelliste aktualisiert sich
 
 ### Commits
-```
-- [Commits]
-```
+Refactor: Split GUI into multiple modules
+
+Feat: Add ArticleDialogWindow for auto accessories
+
+Feat: Implement main window layout with PyQt6
+
+Docs: Update GUI according to auto accessories topic
+
 
 ### Mergekonflikt(e)
-- [Konflikte, falls vorhanden]
-
----
-
-## [v0.4] - [Datum]
-
-### Implementiert
-- [Feature/Fix]
-
-### Tests geschrieben
-- [Tests]
-
-### Commits
-```
-- [Commits]
-```
-
-### Mergekonflikt(e)
-- [Konflikte]
-
----
-
-## [v0.5] - [Datum]
-
-### Implementiert
-- [Feature/Fix]
-
-### Tests geschrieben
-- [Tests]
-
-### Commits
-```
-- [Commits]
-```
-
-### Mergekonflikt(e)
-- [Konflikte]
-
----
-
-## [v1.0] - [Datum]
-
-### Implementiert
-- [Feature/Fix]
-
-### Tests geschrieben
-- [Tests]
-
-### Commits
-```
-- [Commits]
-```
-
-### Mergekonflikt(e)
-- [Konflikte]
+- Keine
 
 ---
 
 ## Zusammenfassung
 
-**Gesamt implementierte Features:** [Anzahl]  
-**Gesamt geschriebene Tests:** [Anzahl]  
-**Gesamt Commits:** [Anzahl]  
-**Größte Herausforderung:** [Beschreibung]  
-**Schönste Code-Zeile:** [Code-Snippet]
+**Gesamt implementierte Features:** GUI-Skizze, GUI-Refactoring, Autozubehör-Anpassung  
+**Gesamt geschriebene Tests:** Manuelle GUI-Tests  
+**Gesamt Commits:** Wird nach Projektende ergänzt  
+**Größte Herausforderung:** Struktur der bestehenden GUI verstehen und korrekt refaktorisieren  
+**Schönste Code-Zeile:** Aufteilung der GUI in separate Dateien für bessere Wartbarkeit
 
 ---
 
-**Changelog erstellt von:** [Name]  
-**Letzte Aktualisierung:** [Datum]
+**Changelog erstellt von:** Dominik Stojanovic
+**Letzte Aktualisierung:** 2026-02-17
