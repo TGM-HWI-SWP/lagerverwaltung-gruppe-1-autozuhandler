@@ -11,25 +11,27 @@ from PyQt6.QtWidgets import (
     QTabWidget,
     QLineEdit,
     QComboBox,
+    QTextEdit,
 )
 from PyQt6.QtCore import Qt
 
-from ..services import WarehouseService
+from ..backend import WarehouseUseCases
 from .dialogs import ArticleDialogWindow
 
 
 class WarehouseMainWindow(QMainWindow):
     """Hauptfenster der Autozubehör-Lagerverwaltungsanwendung"""
 
-    def __init__(self, service: WarehouseService):
+    def __init__(self, use_cases: WarehouseUseCases):
         super().__init__()
-        self.service = service
+        self.use_cases = use_cases
 
         self.setWindowTitle("Autozubehör – Lagerverwaltung v0.1.0")
         self.setGeometry(100, 100, 1100, 650)
 
         self._create_ui()
         self._refresh_articles()  # direkt beim Start laden
+        self._refresh_movements()
 
     def _create_ui(self):
         central_widget = QWidget()
@@ -120,13 +122,13 @@ class WarehouseMainWindow(QMainWindow):
             data = dialog.get_data()
             try:
                 # Domain bleibt gleich: create_product(...)
-                self.service.create_product(
+                self.use_cases.create_product(
                     product_id=data["product_id"],
                     name=data["name"],
                     description=data["description"],
                     price=data["price"],
                     category=data["category"],
-                    initial_quantity=data["quantity"],
+                    quantity=data["quantity"],
                 )
                 QMessageBox.information(self, "Erfolg", "Artikel erfolgreich hinzugefügt.")
                 self._refresh_articles()
@@ -135,27 +137,14 @@ class WarehouseMainWindow(QMainWindow):
 
     def _refresh_articles(self):
         # Domain liefert dict: {product_id: product}
-        products = self.service.get_all_products()
-
-        # UI-Filter (nur oberflächlich, damit es auch ohne Service-Filter geht)
         search = self.search_input.text().strip().lower()
         cat = self.category_filter.currentText().strip()
 
-        filtered = []
-        for product_id, product in products.items():
-            if cat != "Alle" and getattr(product, "category", "") != cat:
-                continue
+        products = self.use_cases.list_products(search=search, category=cat)
 
-            if search:
-                hay = f"{product_id} {getattr(product, 'name', '')}".lower()
-                if search not in hay:
-                    continue
+        self.articles_table.setRowCount(len(products))
 
-            filtered.append((product_id, product))
-
-        self.articles_table.setRowCount(len(filtered))
-
-        for row, (product_id, product) in enumerate(filtered):
+        for row, (product_id, product) in enumerate(products.items()):
             self.articles_table.setItem(row, 0, QTableWidgetItem(str(product_id)))
             self.articles_table.setItem(row, 1, QTableWidgetItem(product.name))
             self.articles_table.setItem(row, 2, QTableWidgetItem(product.category))
@@ -180,8 +169,12 @@ class WarehouseMainWindow(QMainWindow):
             QMessageBox.information(self, "Info", "Bitte zuerst einen Artikel auswählen.")
             return
 
-        QMessageBox.information(self, "Info", "Delete-Funktion wird implementiert.")
-        # später: self.service.delete_product(pid) + refresh
+        deleted = self.use_cases.delete_product(pid)
+        if not deleted:
+            QMessageBox.information(self, "Info", "Artikel wurde nicht gefunden.")
+            return
+        QMessageBox.information(self, "Erfolg", "Artikel erfolgreich gelöscht.")
+        self._refresh_articles()
 
     # -------------------- TAB: BEWEGUNGEN --------------------
 
@@ -205,6 +198,31 @@ class WarehouseMainWindow(QMainWindow):
         widget.setLayout(layout)
         self.tabs.addTab(widget, "Lagerbewegungen")
 
+    def _refresh_movements(self):
+        movements = self.use_cases.list_movements()
+        self.movements_table.setRowCount(len(movements))
+
+        for row, movement in enumerate(sorted(movements, key=lambda m: m.timestamp)):
+            self.movements_table.setItem(
+                row,
+                0,
+                QTableWidgetItem(movement.timestamp.strftime("%Y-%m-%d %H:%M:%S")),
+            )
+            self.movements_table.setItem(
+                row,
+                1,
+                QTableWidgetItem(f"{movement.product_name} ({movement.product_id})"),
+            )
+            self.movements_table.setItem(row, 2, QTableWidgetItem(movement.movement_type))
+            self.movements_table.setItem(
+                row, 3, QTableWidgetItem(f"{movement.quantity_change:+d}")
+            )
+            self.movements_table.setItem(
+                row, 4, QTableWidgetItem(movement.reason or "")
+            )
+
+        self.movements_table.resizeColumnsToContents()
+
     # -------------------- TAB: REPORTS --------------------
 
     def _create_reports_tab(self):
@@ -222,14 +240,18 @@ class WarehouseMainWindow(QMainWindow):
         button_layout.addWidget(movement_btn)
         layout.addLayout(button_layout)
 
-        hint = QLabel("Reports werden später als Text/Datei angezeigt (statt MessageBox).")
-        layout.addWidget(hint)
+        self.report_output = QTextEdit()
+        self.report_output.setReadOnly(True)
+        self.report_output.setPlaceholderText("Waehle einen Report aus.")
+        layout.addWidget(self.report_output)
 
         widget.setLayout(layout)
         self.tabs.addTab(widget, "Berichte")
 
     def _show_inventory_report(self):
-        QMessageBox.information(self, "Lagerbestandsbericht", "Report-Funktion wird implementiert.")
+        report = self.use_cases.generate_inventory_report_text()
+        self.report_output.setPlainText(report)
 
     def _show_movement_report(self):
-        QMessageBox.information(self, "Bewegungsprotokoll", "Report-Funktion wird implementiert.")
+        report = self.use_cases.generate_movement_report_text()
+        self.report_output.setPlainText(report)
