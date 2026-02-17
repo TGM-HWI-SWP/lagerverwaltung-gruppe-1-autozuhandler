@@ -11,7 +11,7 @@ from PyQt6.QtWidgets import (
 
 
 class ArticleDialogWindow(QDialog):
-    """Dialog zum Hinzufügen/Bearbeiten von Autozubehör-Artikeln"""
+    """Dialog zum Hinzufügen/Bearbeiten von Autozubehör-Artikeln (Frontend)"""
 
     def __init__(self, parent=None, title: str = "Artikel hinzufügen"):
         super().__init__(parent)
@@ -20,7 +20,6 @@ class ArticleDialogWindow(QDialog):
 
         layout = QFormLayout()
 
-        # Pflichtfelder (passen zu eurer Domain: product_id, name, description, price, category, quantity)
         self.article_id_field = QLineEdit()  # = product_id
         self.name_field = QLineEdit()
         self.description_field = QLineEdit()
@@ -32,7 +31,6 @@ class ArticleDialogWindow(QDialog):
         self.quantity_field = QSpinBox()
         self.quantity_field.setMaximum(10**9)
 
-        # Kategorie als Dropdown (Autozubehör)
         self.category_field = QComboBox()
         self.category_field.addItems([
             "Reifen",
@@ -46,15 +44,9 @@ class ArticleDialogWindow(QDialog):
             "Sonstiges",
         ])
 
-        # Optionale UI-Felder (nur GUI, speichern aktuell NICHT in Domain)
-        self.brand_field = QLineEdit()
-        self.location_field = QLineEdit()  # Regalplatz/Lagerort
-
         layout.addRow("Artikel-Nr:", self.article_id_field)
         layout.addRow("Name:", self.name_field)
         layout.addRow("Kategorie:", self.category_field)
-        layout.addRow("Marke (optional):", self.brand_field)
-        layout.addRow("Lagerort (optional):", self.location_field)
         layout.addRow("Beschreibung:", self.description_field)
         layout.addRow("Preis (€):", self.price_field)
         layout.addRow("Startbestand:", self.quantity_field)
@@ -73,7 +65,6 @@ class ArticleDialogWindow(QDialog):
         self.setLayout(layout)
 
     def get_data(self) -> dict:
-        """Eingegebene Daten abrufen (Domain-Felder + optionale UI-Felder)"""
         return {
             "product_id": self.article_id_field.text().strip(),
             "name": self.name_field.text().strip(),
@@ -81,7 +72,4 @@ class ArticleDialogWindow(QDialog):
             "price": float(self.price_field.value()),
             "quantity": int(self.quantity_field.value()),
             "category": self.category_field.currentText().strip(),
-            # optional (für späteres erweitern)
-            "brand": self.brand_field.text().strip(),
-            "location": self.location_field.text().strip(),
         }

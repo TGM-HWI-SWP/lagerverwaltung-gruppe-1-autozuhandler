@@ -9,8 +9,8 @@ from .main_window import WarehouseMainWindow
 def main():
     app = QApplication(sys.argv)
 
-    # "json" lädt Testdaten aus data/testdata.json, "memory" startet mit leerem Lager
-    repo = RepositoryFactory.create_repository("json")
+    # Composition Root: Backend wird hier gebaut, UI bekommt nur den Service
+    repo = RepositoryFactory.create_repository("memory")
     service = WarehouseService(repo)
 
     window = WarehouseMainWindow(service)
