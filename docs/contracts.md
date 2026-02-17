@@ -236,3 +236,9 @@ Berechnet den Gesamtwert des Lagers.
 - [ ] GraphML-Report-Generierung
 - [ ] Benutzer-Management erweitern
 - [ ] Batch-Operationen unterstützen
+
+
+
+Rolle 4 - GUI und Interaktion
+
+1. Schnittstelle erstellt. Json Datei für die GUI mit Autoteilen. (Datei: testdata.json)

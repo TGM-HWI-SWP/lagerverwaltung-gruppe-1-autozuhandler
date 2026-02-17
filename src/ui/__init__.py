@@ -9,7 +9,8 @@ from .main_window import WarehouseMainWindow
 def main():
     app = QApplication(sys.argv)
 
-    repo = RepositoryFactory.create_repository("memory")
+    # "json" lädt Testdaten aus data/testdata.json, "memory" startet mit leerem Lager
+    repo = RepositoryFactory.create_repository("json")
     service = WarehouseService(repo)
 
     window = WarehouseMainWindow(service)
