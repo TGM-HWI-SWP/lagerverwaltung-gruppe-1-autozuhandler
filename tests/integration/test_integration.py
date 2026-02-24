@@ -1,6 +1,5 @@
 """Integration Tests"""
 
-import pytest
 from src.adapters.repository import InMemoryRepository, RepositoryFactory
 from src.adapters.report import ConsoleReportAdapter
 from src.services import WarehouseService
@@ -15,9 +14,23 @@ class TestIntegration:
         repository = RepositoryFactory.create_repository("memory")
         service = WarehouseService(repository)
 
-        # Produkte erstellen
-        service.create_product("LAPTOP-001", "Laptop ProBook", "Hochwertiger Laptop", 1200.0, category="Elektronik", initial_quantity=5)
-        service.create_product("MOUSE-001", "Wireless Mouse", "Ergonomische Maus", 25.0, category="Zubehör", initial_quantity=50)
+        # Produkte erstellen (erzeugt jetzt jeweils 1 Movement bei initial_quantity > 0)
+        service.create_product(
+            "LAPTOP-001",
+            "Laptop ProBook",
+            "Hochwertiger Laptop",
+            1200.0,
+            category="Elektronik",
+            initial_quantity=5,
+        )
+        service.create_product(
+            "MOUSE-001",
+            "Wireless Mouse",
+            "Ergonomische Maus",
+            25.0,
+            category="Zubehör",
+            initial_quantity=50,
+        )
 
         # Lagerbewegungen durchführen
         service.add_to_stock("LAPTOP-001", 3, reason="Bestellung #123", user="Max Mustermann")
@@ -29,10 +42,11 @@ class TestIntegration:
         assert laptop.quantity == 6  # 5 + 3 - 2
 
         movements = service.get_movements()
-        assert len(movements) == 3
+        # 2x Startbestand + 3 Aktionen = 5
+        assert len(movements) == 5
 
         total_value = service.get_total_inventory_value()
-        assert total_value == 7200.0 + 600.0  # (1200*6) + (25*60)
+        assert total_value == 7200.0 + 1500.0  # (1200*6) + (25*60)
 
     def test_report_generation(self):
         """Test: Report-Generierung"""
@@ -49,6 +63,7 @@ class TestIntegration:
         inventory_report = report_adapter.generate_inventory_report()
         movement_report = report_adapter.generate_movement_report()
 
-        assert "Lagerbestandsbericht" in inventory_report or "Lagerbestandsbericht" not in inventory_report  # Placeholder
+        assert "LAGERBESTANDSBERICHT" in inventory_report
+        assert "BEWEGUNGSPROTOKOLL" in movement_report
         assert len(inventory_report) > 0
         assert len(movement_report) > 0

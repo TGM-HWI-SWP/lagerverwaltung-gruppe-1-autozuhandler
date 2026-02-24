@@ -45,7 +45,7 @@ class ConsoleReportAdapter(ReportPort):
 
     def generate_movement_report(self) -> str:
         """
-        Bewegungsprotokoll als Text generieren
+        Bewegungsprotokoll als Text generieren (Report B)
 
         Returns:
             Formatierter Bericht
@@ -53,21 +53,29 @@ class ConsoleReportAdapter(ReportPort):
         if not self.movements:
             return "Keine Lagerbewegungen vorhanden.\n"
 
+        movements_sorted = sorted(self.movements, key=lambda m: m.timestamp)
+
+        total_in = sum(m.quantity_change for m in movements_sorted if m.quantity_change > 0)
+        total_out = sum(-m.quantity_change for m in movements_sorted if m.quantity_change < 0)
+        net = total_in - total_out
+
         report = "=" * 80 + "\n"
         report += "BEWEGUNGSPROTOKOLL\n"
-        report += "=" * 80 + "\n\n"
-
-        for movement in sorted(self.movements, key=lambda m: m.timestamp):
-            report += f"[{movement.timestamp.strftime('%Y-%m-%d %H:%M:%S')}]\n"
-            report += f"  Produkt: {movement.product_name} (ID: {movement.product_id})\n"
-            report += f"  Typ: {movement.movement_type}\n"
-            report += f"  Menge: {movement.quantity_change:+d}\n"
-            if movement.reason:
-                report += f"  Grund: {movement.reason}\n"
-            report += f"  Durchgeführt von: {movement.performed_by}\n\n"
-
         report += "=" * 80 + "\n"
-        report += f"Gesamtbewegungen: {len(self.movements)}\n"
+        report += "Zeit               | Artikel | Typ | Menge | User | Grund\n"
+        report += "-" * 80 + "\n"
+
+        for m in movements_sorted:
+            ts = m.timestamp.strftime("%Y-%m-%d %H:%M")
+            reason = (m.reason or "-").replace("\n", " ").strip()
+            report += (
+                f"{ts} | {m.product_id} | {m.movement_type} | {m.quantity_change:+d} | "
+                f"{m.performed_by} | {reason}\n"
+            )
+
+        report += "-" * 80 + "\n"
+        report += f"Summe IN: {total_in} | Summe OUT: {total_out} | Netto: {net}\n"
+        report += f"Gesamtbewegungen: {len(movements_sorted)}\n"
         report += "=" * 80 + "\n"
 
         return report
