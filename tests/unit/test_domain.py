@@ -1,5 +1,4 @@
 """Tests - Unit Tests für die Geschäftslogik"""
-
 import pytest
 from src.domain.product import Product
 from src.adapters.repository import InMemoryRepository
@@ -93,6 +92,12 @@ class TestWarehouseService:
         assert product.id == "P001"
         assert product.quantity == 10
 
+        # Startbestand wird jetzt als Movement gespeichert
+        movements = service.get_movements()
+        assert len(movements) == 1
+        assert movements[0].movement_type == "IN"
+        assert movements[0].quantity_change == 10
+
     def test_add_to_stock(self, service):
         """Test: Bestand erhöhen"""
         service.create_product("P001", "Test", "Test", 10.0, initial_quantity=5)
@@ -139,4 +144,5 @@ class TestWarehouseService:
         service.remove_from_stock("P001", 2)
 
         movements = service.get_movements()
-        assert len(movements) == 2
+        # Startbestand + add + remove = 3
+        assert len(movements) == 3

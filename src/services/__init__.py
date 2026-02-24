@@ -33,8 +33,24 @@ class WarehouseService:
             quantity=initial_quantity,
             category=category,
         )
+
+        # Produkt speichern
         self.repository.save_product(product)
         self.warehouse.add_product(product)
+
+        # Startbestand als Movement protokollieren (für konsistente History + Report B)
+        if initial_quantity > 0:
+            movement = Movement(
+                id=f"mov_{datetime.now().timestamp()}",
+                product_id=product_id,
+                product_name=product.name,
+                quantity_change=initial_quantity,
+                movement_type="IN",
+                reason="Startbestand",
+                performed_by="system",
+            )
+            self.repository.save_movement(movement)
+
         return product
 
     def add_to_stock(
