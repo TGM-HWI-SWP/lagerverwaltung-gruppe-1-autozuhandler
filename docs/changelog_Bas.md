@@ -1,21 +1,22 @@
-# Changelog - [Recep Bas]
+# Changelog - Recep Bas
 
-Persönliches Changelog für [Recep Bas], Rolle: [3]
+Persönliches Changelog für Recep Bas, Rolle: 3 (Report B & Qualitätssicherung)
 
 ---
 
-## [v0.1] - 2025-01-20
+## [v0.1] - 2025-02-24
 
 ### Implementiert
 
-- [Feature/Fix 1]
-- [Feature/Fix 2]
-- [Feature/Fix 3]
+- Erweiterung des Movement-Reports (Report B)
+- Sortierung der Bewegungen nach Timestamp
+- Anzeige von Bewegungstyp, Menge (+/-), Grund und Benutzer
+- Gesamtanzahl der Bewegungen im Report ergänzt
 
 ### Tests geschrieben
 
-- test_[name 1]
-- test_[name 2]
+- test_movement_report_empty()
+- test_movement_report_sorted_and_totals()
 
 ### Commits
 
@@ -27,9 +28,7 @@ Persönliches Changelog für [Recep Bas], Rolle: [3]
 
 ### Mergekonflikt(e)
 
-- [Datei]: [Kurzbeschreibung und Lösung]
-
----
+- keine
 
 ## [v0.2] - [Datum]
 
