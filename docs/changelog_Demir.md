@@ -1,44 +1,29 @@
-# Changelog - [Name]
+# Changelog - Mert Demir
 
-Persönliches Changelog für [Name], Rolle: [Rollenbezeichnung]
-
----
-
-## [v0.1] - 2025-01-20
-
-### Implementiert
-- [Feature/Fix 1]
-- [Feature/Fix 2]
-- [Feature/Fix 3]
-
-### Tests geschrieben
-- test_[name 1]
-- test_[name 2]
-
-### Commits
-```
-- abc1234 Feat: [Beschreibung]
-- def5678 Test: [Beschreibung]
-- ghi9012 Docs: [Beschreibung]
-```
-
-### Mergekonflikt(e)
-- [Datei]: [Kurzbeschreibung und Lösung]
+Persönliches Changelog für Mert Demir, Rolle: Backend & Datenbank-Entwicklung
 
 ---
 
-## [v0.2] - [Datum]
+## [v0.3] - 2026-03-03
 
 ### Implementiert
-- [Feature/Fix 1]
-- [Feature/Fix 2]
+- SQLite Datenbank mit vollständigem Schema
+- 8 Datenbank-Tabellen mit Constraints und Indexes
+- SQLAlchemy ORM-Modelle für sämtliche Tabellen
+- SqliteRepository Implementierung für RepositoryPort Interface
+- Dump-Daten mit 22 Produkten und 14 Lagerbewegungen
+- Datenbank-Initialisierungsskript mit automatischer Verifizierung
+- Datenbanktest-Skript mit multiplen Access-Methoden (Repository, ORM, SQL)
+- Umfangreiche Datenbankdokumentation
 
 ### Tests geschrieben
-- test_[name 1]
+- test_database.py (Repository API Tests)
+- test_database.py (SQLAlchemy ORM Tests)
+- test_database.py (SQL Query Tests)
 
 ### Commits
 ```
-- jkl3456 Feat: [Beschreibung]
+- 54a8ff0 Datenbank Setup und Dokumentation
 ```
 
 ### Mergekonflikt(e)
@@ -46,7 +31,50 @@ Persönliches Changelog für [Name], Rolle: [Rollenbezeichnung]
 
 ---
 
-## [v0.3] - [Datum]
+## [v0.2] - 2026-02-17
+
+### Implementiert
+- Backend Use Cases mit Business Logic
+- Lagerverwaltungs-Operationen (add_product, update_quantity, etc.)
+- Bestandsverwaltungs-Methoden
+- Improved GUI Main Window mit besserer Struktur und Error Handling
+
+### Tests geschrieben
+- test_backend_use_cases.py
+  - test_add_product
+  - test_update_quantity
+  - test_get_inventory_report
+  - test_record_movement
+  - test_validation_errors
+
+### Commits
+```
+- 3b437b1 Backend Update V1.0
+- 554369a Error Update GUI und Backend V.1.1
+```
+
+### Mergekonflikt(e)
+- Keine
+
+---
+
+## [v0.1] - 2026-02-17
+
+### Implementiert
+- GUI Cleanup und Refactoring
+- Error Handling in Main Window
+- UI Performance Improvements
+
+### Tests geschrieben
+- Keine
+
+### Commits
+```
+- 554369a Error Update GUI und Backend V.1.1
+```
+
+### Mergekonflikt(e)
+- Keine
 
 ### Implementiert
 - [Feature/Fix 1]
