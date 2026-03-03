@@ -1,6 +1,6 @@
-# Changelog - [Name]
+# Changelog - Yusuf Akbulut
 
-Persönliches Changelog für [Name], Rolle: [Rollenbezeichnung]
+Persönliches Changelog für Yusuf Akbulut, Rolle: Rolle 1 – Projektverantwortung & Schnittstellen (Contract Owner)
 
 ---
 
@@ -14,6 +14,7 @@ Persönliches Changelog für [Name], Rolle: [Rollenbezeichnung]
 ### Tests geschrieben
 - test_[name 1]
 - test_[name 2]
+
 
 ### Commits
 ```
@@ -73,32 +74,44 @@ Persönliches Changelog für [Name], Rolle: [Rollenbezeichnung]
 - [Tests]
 
 ### Commits
-```
-- [Commits]
-```
+
 
 ### Mergekonflikt(e)
 - [Konflikte]
 
 ---
 
-## [v0.5] - [Datum]
+## [v0.5] - 2026-02-24
 
 ### Implementiert
-- [Feature/Fix]
+- Integration-Tool `system_check.py` erstellt (Überprüfung von Repository, Contract und optional Service)
+- `contract_validator.py` zur Contract-Prüfung integriert
+- JSON Data Contract in `contracts.md` dokumentiert (testdata.json)
+- Projektstruktur angepasst (Package-Struktur mit `__init__.py` ergänzt)
 
 ### Tests geschrieben
-- [Tests]
+- Keine (System-Check dient als Integrationsprüfung)
 
 ### Commits
-```
-- [Commits]
-```
+
 
 ### Mergekonflikt(e)
-- [Konflikte]
+- Keine
 
 ---
+## [v0.6] - 2026-03-03
+
+### Implementiert
+
+### Tests geschrieben
+- Keine (System-Check dient als Integrationsprüfung)
+- Gemeinsamer Test, ob die Produkte bei CRUD befehlen in einer Datenbank gespeichert werden. 
+
+### Commits
+
+
+### Mergekonflikt(e)
+- Keine
 
 ## [v1.0] - [Datum]
 
@@ -109,9 +122,7 @@ Persönliches Changelog für [Name], Rolle: [Rollenbezeichnung]
 - [Tests]
 
 ### Commits
-```
-- [Commits]
-```
+
 
 ### Mergekonflikt(e)
 - [Konflikte]
@@ -123,10 +134,10 @@ Persönliches Changelog für [Name], Rolle: [Rollenbezeichnung]
 **Gesamt implementierte Features:** [Anzahl]  
 **Gesamt geschriebene Tests:** [Anzahl]  
 **Gesamt Commits:** [Anzahl]  
-**Größte Herausforderung:** [Beschreibung]  
-**Schönste Code-Zeile:** [Code-Snippet]
+**Größte Herausforderung:** Korrekte Modulstruktur und Import-Auflösung (src vs. tests)  
+**Schönste Code-Zeile:** `validate_repository_contract(repo)`
 
 ---
 
-**Changelog erstellt von:** [Name]  
-**Letzte Aktualisierung:** [Datum]
+**Changelog erstellt von:** Yusuf Akbulut  
+**Letzte Aktualisierung:** 2026-02-24
