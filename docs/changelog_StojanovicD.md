@@ -153,7 +153,10 @@ Docs: Add personal changelog files
 Klare Trennung zwischen Frontend (GUI) und Backend-Logik sowie Refaktorierung der bestehenden GUI-Struktur.
 
 **Schönste Code-Zeile:**
-Service-Injection in das MainWindow zur sauberen Architekturtrennung.
+self._refresh_articles()
+- Nach jeder Aktion wird die Tabelle automatisch aktualisiert
+- Die GUI bleibt immer synchron mit den Daten
+- Ein einziger Aufruf hält alles aktuell
 
 ---
 
