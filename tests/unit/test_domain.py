@@ -106,6 +106,9 @@ class TestWarehouseService:
         product = service.get_product("P001")
         assert product.quantity == 8
 
+    def test_get(self, service):
+        """Test: Bekommen"""
+
     def test_remove_from_stock(self, service):
         """Test: Bestand verringern"""
         service.create_product("P001", "Test", "Test", 10.0, initial_quantity=10)
