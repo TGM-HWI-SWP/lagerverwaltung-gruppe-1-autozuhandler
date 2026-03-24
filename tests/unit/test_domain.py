@@ -115,7 +115,7 @@ class TestWarehouseService:
         service.remove_from_stock("P001", 3, reason="Verkauf")
 
     def test():
-        print("Test")
+        print("Test1")
 
 
 
