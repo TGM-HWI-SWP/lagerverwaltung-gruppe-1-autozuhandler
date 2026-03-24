@@ -132,6 +132,14 @@ Docs: Add personal changelog files
 
 ---
 
+## [v0.6] - 2026-03-24
+
+### Mergekonflikt(e)
+
+- gemeinsamer Mergekonflikt in test_domain.py: Unterschiedliche Änderung der Docstring in test_get() zwischen zwei Entwicklern --> Konflikt manuell zusammengeführt und bereinigt
+
+---
+
 ## Zusammenfassung
 
 **Gesamt implementierte Features:**
@@ -161,4 +169,4 @@ self._refresh_articles()
 ---
 
 **Changelog erstellt von:** Dominik Stojanovic  
-**Letzte Aktualisierung:** 2026-03-03
+**Letzte Aktualisierung:** 2026-03-24
