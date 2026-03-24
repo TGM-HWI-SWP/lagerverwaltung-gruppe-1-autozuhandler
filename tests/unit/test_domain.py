@@ -107,7 +107,7 @@ class TestWarehouseService:
         assert product.quantity == 8
 
     def test_get(self, service):
-        """Test2: Bekommen"""
+        """Test: Bekommen"""
 
     def test_remove_from_stock(self, service):
         """Test: Bestand verringern"""
