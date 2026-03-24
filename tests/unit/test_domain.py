@@ -114,9 +114,7 @@ class TestWarehouseService:
         service.create_product("P001", "Test", "Test", 10.0, initial_quantity=10)
         service.remove_from_stock("P001", 3, reason="Verkauf")
 
-    def test():
-        print("Test1")
-
+   
 
 
 #fkljfkdljflfjlfflk
